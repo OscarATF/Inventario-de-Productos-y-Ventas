@@ -27,6 +27,17 @@ void nuevoProducto(Producto arrElemento[],int& n) {
 	system("pause");
 }
 
+void listaProducto(Producto arr[],int n) {
+	system("cls");
+	cout<<"Listado de productos registrados:\n"<<endl;
+	for (int i=0;i<n;i++) {
+		cout<<"Producto "<<i+1<<" :\n"<<endl;
+		cout<<"Nombre: "<<arr[i].nombre<<endl;
+		cout<<"precio: s/"<<arr[i].precio<<endl<<endl;
+	}
+	system("pause");
+}
+
 int main() {
 	const int MAX=1000;
 	Producto elemento[MAX] = {
@@ -64,6 +75,7 @@ int main() {
 				nuevoProducto(elemento,n);
 				break;
 			case 2: //listar productos
+				listaProducto(elemento,n);
 				break;
 			case 3: //buscar por nombre
 				break;
