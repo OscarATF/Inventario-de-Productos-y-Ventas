@@ -61,6 +61,30 @@ void buscarProducto(Producto arr[],int& n) {
     system("pause");
 }
 
+void actualizarProducto(Producto arr[],int& n) {
+	int indice;
+	int numeroProducto;
+	system("cls");
+	cout<<"Lista de Productos:\n"<<endl;
+		for (int i=0;i<n;i++) {
+			cout<<"PRODUCTO "<<i+1<<" :\n"<<endl;
+			cout<<"Nombre: "<<arr[i].nombre<<endl;
+			cout<<"Precio: s/"<<arr[i].precio<<endl<<endl;
+		}
+			cout<<"Digite el numero de producto que desea actualizar: ";
+			cin>>numeroProducto;
+			indice=numeroProducto-1;
+			cout<<"\nProducto "<<numeroProducto<<" seleccionado\n"<<endl;
+			cout<<"Ingrese el nuevo nombre del producto : ";
+			cin.ignore();
+			getline(cin,arr[indice].nombre);
+			(arr[indice].nombre)[0]=toupper((arr[indice].nombre)[0]);
+			cout<<"Ingrese el precio del producto : ";
+			cin>>arr[indice].precio;
+			cout<<"\n\nProducto actualizado\n"<<endl;
+	system("pause");
+}
+
 int main() {
 	const int MAX=1000;
 	Producto elemento[MAX] = {
@@ -104,6 +128,7 @@ int main() {
 				buscarProducto(elemento,n);
 				break;
 			case 4: //actualizar datos producto
+				actualizarProducto(elemento,n);
 				break;
 			case 5: //eliminar datos producto
 				break;
