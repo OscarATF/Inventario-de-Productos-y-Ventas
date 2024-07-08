@@ -14,6 +14,19 @@ struct Venta {
 	float precioTotal;
 };
 
+void nuevoProducto(Producto arrElemento[],int& n) {
+	system("cls");
+	cout<<"Ingrese el nombre del producto : ";
+	cin.ignore();
+	getline(cin,arrElemento[n].nombre);
+	(arrElemento[n].nombre)[0]=toupper((arrElemento[n].nombre)[0]);
+	cout<<"Ingrese el precio del producto : ";
+	cin>>arrElemento[n].precio;
+	cout<<"\nRegistrado correctamente\n"<<endl;
+	n++;
+	system("pause");
+}
+
 int main() {
 	const int MAX=1000;
 	Producto elemento[MAX] = {
@@ -48,6 +61,7 @@ int main() {
 		cin>>op;
 		switch (op) {
 			case 1: //agregar un producto
+				nuevoProducto(elemento,n);
 				break;
 			case 2: //listar productos
 				break;
