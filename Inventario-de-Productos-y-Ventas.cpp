@@ -38,6 +38,29 @@ void listaProducto(Producto arr[],int n) {
 	system("pause");
 }
 
+void buscarProducto(Producto arr[],int& n) {
+    string nombreBuscar;
+    system("cls");
+    cout<<"Ingrese el nombre del producto a buscar: ";
+    cin.ignore();
+	getline(cin,nombreBuscar);
+	nombreBuscar[0]=toupper(nombreBuscar[0]);
+    bool encontrado=false;
+    for (int i=0;i<n;i++) {
+        if (arr[i].nombre==nombreBuscar) {
+            cout<<"Producto encontrado\n"
+				<<"Nombre: " <<arr[i].nombre 
+				<<", Precio: s/"<< arr[i].precio<<endl;
+            encontrado=true;
+            break;
+        }
+	}
+    if (encontrado!=true) {
+        cout<<"Producto no encontrado."<<endl;
+    }
+    system("pause");
+}
+
 int main() {
 	const int MAX=1000;
 	Producto elemento[MAX] = {
@@ -78,6 +101,7 @@ int main() {
 				listaProducto(elemento,n);
 				break;
 			case 3: //buscar por nombre
+				buscarProducto(elemento,n);
 				break;
 			case 4: //actualizar datos producto
 				break;
