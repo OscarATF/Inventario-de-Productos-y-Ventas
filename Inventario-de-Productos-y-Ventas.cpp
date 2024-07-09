@@ -85,6 +85,31 @@ void actualizarProducto(Producto arr[],int& n) {
 	system("pause");
 }
 
+void eliminarProducto(Producto arr[],int& n) {
+	int indice;
+	int numeroProducto;
+	system("cls");
+	cout<<"Lista de Productos:\n"<<endl;
+		for (int i=0;i<n;i++) {
+			cout<<"PRODUCTO "<<i+1<<" :\n"<<endl;
+			cout<<"Nombre: "<<arr[i].nombre<<endl;
+			cout<<"Precio: s/"<<arr[i].precio<<endl<<endl;
+		}
+			cout<<"Digite el numero de producto que desea eliminar: ";
+			cin>>numeroProducto;
+			indice=numeroProducto-1;
+		if (indice >= 0 && indice < n) {
+			for (int i=indice;i<n-1;++i) {
+				arr[i]=arr[i+1];
+			}
+			n--;
+			cout<<"\nProducto eliminado\n"<<endl;
+		} else {
+		cout<<"\nIndice no valido\n"<<endl;
+		}
+	system("pause");
+}
+
 int main() {
 	const int MAX=1000;
 	Producto elemento[MAX] = {
@@ -131,6 +156,7 @@ int main() {
 				actualizarProducto(elemento,n);
 				break;
 			case 5: //eliminar datos producto
+				eliminarProducto(elemento,n);
 				break;
 			case 6: //Registrar una venta
 				break;
@@ -142,7 +168,7 @@ int main() {
 				cout<<"Saliendo del programa"<<endl;
 				break;
 			default:
-				cout<<"Ingrese una opcion valida\n"<<endl;
+				cout<<"\nIngrese una opcion valida\n"<<endl;
 				system("pause");
 		}
 	} while (op!=9);
