@@ -110,6 +110,31 @@ void eliminarProducto(Producto arr[],int& n) {
 	system("pause");
 }
 
+void registraVenta(Producto arrP[],Venta arrV[],int n,int& m,int& id) {
+	int indice;
+	int numeroProducto;
+	system("cls");
+	cout<<"Lista de Productos:\n"<<endl;
+		for (int i=0;i<n;i++) {
+			cout<<"PRODUCTO "<<i+1<<" :\n"<<endl;
+			cout<<"Nombre: "<<arrP[i].nombre<<endl;
+			cout<<"Precio: s/"<<arrP[i].precio<<endl<<endl;
+		}
+		cout<<"Digite el numero de producto al cual desea registrar una venta: ";
+		cin>>numeroProducto;
+		indice=numeroProducto-1;
+		cout<<"\nProducto "<<numeroProducto<<" seleccionado\n"<<endl;
+		arrV[m].producto=arrP[indice].nombre;
+		cout<<"Ingrese la cantidad de ventas realizadas: ";
+		cin>>arrV[m].cantidad;
+		cout<<"\nVenta registrada\n"<<endl;
+		arrV[m].precioTotal=(arrV[m].cantidad)*(arrP[indice].precio);
+		arrV[m].idVenta=id+1;
+		id++;
+		m++;
+	system("pause");
+}
+
 int main() {
 	const int MAX=1000;
 	Producto elemento[MAX] = {
@@ -159,6 +184,7 @@ int main() {
 				eliminarProducto(elemento,n);
 				break;
 			case 6: //Registrar una venta
+				registraVenta(elemento,ventas,n,m,id);
 				break;
 			case 7: //Listar las ventas realizadas
 				break;
