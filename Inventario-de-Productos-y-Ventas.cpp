@@ -148,15 +148,25 @@ void listaVenta(Venta arrV[],int m) {
 	system("pause");
 }
 
+void calTotalVentas(Venta arrV[],int m) {
+	int suma=0;
+	for (int i=0;i<m;i++) {
+		suma+=arrV[i].precioTotal;
+	}
+	system("cls");
+	cout<<"El total de las ventas realizadas es: s/"<<suma<<endl;
+	system("pause");
+}
+
 int main() {
 	const int MAX=1000;
-	Producto elemento[MAX] = {
+	Producto elemento[MAX] = { //productos predefinidos
 		{"Tarjeta de video",2000.0},
 		{"Procesador intel",1200.0},
 		{"Placa madre",900.0},
 		{"Disipador",250.0}
 	};
-	Venta ventas[MAX]= {	
+	Venta ventas[MAX]= {	//ventas predefinidas
 	    {100,elemento[0].nombre,2,4000.0},        
 		{101,elemento[1].nombre,1,1200.0}
 	};
@@ -203,6 +213,7 @@ int main() {
 				listaVenta(ventas,m);
 				break;
 			case 8:	//calcular el total de ventas realizadas
+				calTotalVentas(ventas,m);
 				break;
 			case 9:	//salir del programa
 				cout<<"Saliendo del programa"<<endl;
